@@ -42,15 +42,16 @@
     }
 
     .add-list-item {
-        margin-top: 10px;
+        margin-top: $content-padding-small;
     }
 }
 
 .order-line-item-sku {
     width: 134px;
 
+    .order-line-item-type-product,
     input {
-        width: 120px !important;
+        width: 70px !important;
     }
 }
 
@@ -67,6 +68,7 @@
 
     input[type="text"]{
         width: 279px !important;
+        margin-bottom: 0;
     }
 }
 
@@ -78,9 +80,7 @@
         float: left;
     }
 
-    select {
-        width: 80px !important;
-    }
+    @include selector-width(80px);
 
     .input-widget-select {
         float: left;
@@ -92,9 +92,7 @@
 }
 
 .order-line-item-price {
-    select {
-        width: 80px !important;
-    }
+    @include selector-width(80px);
 
     .input-widget-select {
         float: left;
@@ -133,16 +131,18 @@
 .notes-widget {
     width: 280px;
     word-wrap: break-word;
-}
 
-.notes-widget-preview,
-.notes-widget-edit {
-    margin-bottom: 10px;
+    &-edit-btn,
+    &-add-btn,
+    &-remove-btn {
+        line-height: 32px;
+    }
 }
 
 .notes-widget-preview {
     word-wrap: break-word;
     white-space: normal;
+    margin-top: 6px;
 }
 
 .notes-widget-edit {
@@ -161,7 +161,7 @@ td.order-discount-item-remove {
     }
 
     .add-list-item {
-        margin-top: 10px;
+        margin-top: $content-padding-small;
     }
 }
 
@@ -220,9 +220,7 @@ td.order-discount-item-remove {
 }
 
 .discount-item-value-type {
-    select {
-        width: 80px;
-    }
+    @include selector-width(80px);
 }
 
 .discount-popup {

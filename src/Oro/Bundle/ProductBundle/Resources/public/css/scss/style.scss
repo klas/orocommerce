@@ -18,26 +18,35 @@
     margin-top: -3px;
     height: 13px;
     font-size: 13px;
+
+    [class^="fa-"] {
+        margin: 0 $content-padding-small / 2;
+    }
 }
 
 .mobile-version {
     .quick-editable {
-        margin-top: 2px;
+        margin-#{$start}: auto;
     }
 }
 
 .oro-item-collection {
     td {
         white-space: nowrap;
-        vertical-align: middle;
-
-        .conversion-rate-label {
-            position: absolute;
-            padding-top: 5px;
-        }
+        vertical-align: top;
 
         .sell {
-            margin-top: 8px;
+            margin-top: $content-padding-small;
+        }
+
+        table {
+            thead th > span {
+                padding: 0;
+            }
+
+            td {
+                vertical-align: middle;
+            }
         }
     }
 
@@ -45,7 +54,7 @@
     input[type="number"] {
         &.precision,
         &.conversionRate {
-            width: 40px;
+            width: 56px;
         }
     }
 }
@@ -66,11 +75,24 @@
         }
     }
 
+    @include selector-width(104px);
+
     select {
         &.hidden-unit {
             display: none;
             visibility: hidden;
         }
+    }
+
+    .table {
+        width: auto;
+        margin-bottom: $content-padding-small;
+    }
+
+    .grid {
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 }
 
@@ -131,15 +153,20 @@
     }
 
     .add-list-item {
-        margin-top: 8px;
+        margin-top: $content-padding-small;
         margin-#{$start}: 0;
     }
 
     th,
     td {
-        vertical-align: middle;
+        vertical-align: top;
+
         &:not(:first-child) {
             text-align: center;
+        }
+
+        .checkbox-view {
+            margin-top: $content-padding-small;
         }
     }
 
@@ -166,13 +193,6 @@
 
 .content-variant-item,
 .product-collection-segment {
-    div.filter-box {
-        &.oro-clearfix-width {
-            margin-#{$start}: 0;
-            margin-#{$end}: 0;
-        }
-    }
-
     .oro-tabs {
         .tab-pane {
             min-height: 0;
@@ -285,5 +305,19 @@
 
     ~ div .grid-views {
         margin-top: -28px;
+    }
+}
+
+form[name*="product"] {
+    .container-fluid {
+        > .responsive-section {
+            &:not(.responsive-small) {
+                .responsive-cell {
+                    &:last-child {
+                        padding-#{$start}: 0;
+                    }
+                }
+            }
+        }
     }
 }
